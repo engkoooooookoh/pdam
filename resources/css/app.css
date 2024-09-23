@@ -1,0 +1,9 @@
+/* resources/css/style.css */
+body {
+    background-color: #f0f0f0;
+}
+
+.custom-navbar {
+    font-size: 18px;
+    font-weight: bold;
+}
