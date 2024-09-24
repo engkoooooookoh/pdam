@@ -47,15 +47,14 @@
 
     <!-- About Us Section -->
     <section class="py-5 bg-light">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
+        <div class="container text-center">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-8">
                     <h2 class="fw-bolder">Tentang PDAM Garut</h2>
-                    <p class="lead">PDAM Garut telah melayani masyarakat Garut dengan penyediaan air bersih selama lebih dari 25 tahun.</p>
+                    <p class="lead">
+                        PDAM Garut telah berperan sebagai penyedia air bersih terpercaya di Kabupaten Garut selama lebih dari 25 tahun. Sebagai perusahaan daerah, kami berdedikasi untuk menyediakan air bersih yang aman, terjangkau, dan berkelanjutan bagi seluruh lapisan masyarakat. Kami juga terus berinovasi untuk meningkatkan layanan kami, baik dari sisi kualitas air maupun kemudahan akses layanan bagi pelanggan.
+                    </p>
                     <a class="btn btn-primary btn-lg" href="#">Pelajari Lebih Lanjut</a>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <img class="img-fluid rounded shadow" src="https://images.unsplash.com/photo-1505236732171-72a5b19c4981?w=600&auto=format&fit=crop&q=60" alt="Tentang PDAM Garut">
                 </div>
             </div>
         </div>

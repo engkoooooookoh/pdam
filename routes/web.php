@@ -31,8 +31,24 @@ Route::resource('pelanggan', PelangganController::class);
 // Rute untuk Admin
 Route::group(['middleware' => ['admin']], function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    //
     Route::get('/profil-pdam', [ProfilController::class, 'index'])->name('profil.pdam');
     Route::get('/layanan-online', [LayananController::class, 'index'])->name('layanan.online');
-    Route::get('/kontak-kami', [KontakController::class, 'index'])->name('kontak.kami');    
+    Route::get('/kontak-kami', [KontakController::class, 'index'])->name('kontak.kami');  
+    //
+
+    Route::get('/sejarah', function () {
+        return view('sejarah');
+    })->name('sejarah');
+    
+    Route::get('/visi', function () {
+        return view('visi');
+    })->name('visi');
+    
+    Route::get('/misi', function () {
+        return view('misi');
+    })->name('misi');
+    
+      
 
 });

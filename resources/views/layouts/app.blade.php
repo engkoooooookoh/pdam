@@ -95,68 +95,80 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Navbar Content -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        <!-- Kosong karena menu dipindah ke kanan -->
-                    </ul>
+               <!-- Navbar Content -->
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!-- Left Side Of Navbar -->
+    <ul class="navbar-nav me-auto">
+        <!-- Kosong karena menu dipindah ke kanan -->
+    </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Memindahkan Beranda, Profil PDAM, Layanan Online, dan Kontak Kami ke kanan -->
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('home') }}">Beranda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('profil.pdam') }}">Profil PDAM</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('layanan.online') }}">Layanan Online</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('kontak.kami') }}">Kontak Kami</a>
-                        </li>
+    <!-- Right Side Of Navbar -->
+    <ul class="navbar-nav ms-auto">
+        <!-- Memindahkan Beranda, Profil PDAM (dengan dropdown), Layanan Online, dan Kontak Kami ke kanan -->
+        <li class="nav-item">
+            <a class="nav-link active" href="{{ route('home') }}">Beranda</a>
+        </li>
 
-                        <!-- Tampilkan menu Daftar Pelanggan hanya jika user adalah admin -->
-                        @if (Auth::check() && Auth::user()->role === 'admin')
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('pelanggan.index') }}">Daftar Pelanggan</a>
-                            </li>
-                        @endif
+        <!-- Dropdown Profil PDAM -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Profil PDAM
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="profilDropdown">
+                <li><a class="dropdown-item" href="{{ route('sejarah') }}">Sejarah,Visi,Misi</a></li>
+                <li><a class="dropdown-item" href="{{ route('visi') }}">Produk Hukum</a></li>
+                <li><a class="dropdown-item" href="{{ route('misi') }}">Peta Wilayah Langganan</a></li>
+            </ul>
+        </li>
 
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('layanan.online') }}">Layanan Online</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('kontak.kami') }}">Kontak Kami</a>
+        </li>
+
+        <!-- Tampilkan menu Daftar Pelanggan hanya jika user adalah admin -->
+        @if (Auth::check() && Auth::user()->role === 'admin')
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('pelanggan.index') }}">Daftar Pelanggan</a>
+            </li>
+        @endif
+
+        <!-- Authentication Links -->
+        @guest
+            @if (Route::has('login'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                </li>
+            @endif
+            @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                </li>
+            @endif
+        @else
+            <!-- Dropdown Logout -->
+            <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }}
+                </a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
+            </li>
+        @endguest
+    </ul>
+</div>
+
             </div>
         </nav>
 

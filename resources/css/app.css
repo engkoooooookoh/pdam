@@ -1,4 +1,4 @@
-/* resources/css/style.css */
+/* resources/css/style.css
 body {
     background-color: #f0f0f0;
 }
@@ -7,3 +7,7 @@ body {
     font-size: 18px;
     font-weight: bold;
 }
+
+.navbar.scrolled {
+    background-color: #007bff !important;
+} */
